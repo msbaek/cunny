@@ -2,8 +2,11 @@ package com.example.todo;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class TodoActivity extends Activity {
     /**
@@ -16,5 +19,10 @@ public class TodoActivity extends Activity {
 
         ListView listView = (ListView) findViewById(R.id.myListView); // GUI 객체(myListView)와 코드의 객체(listView)를 연결
         final EditText editText = (EditText) findViewById(R.id.myEditTExt);
+
+        final ArrayList<String> todoItems = new ArrayList<String>(); // 할일을 저장할 ArrayList를 생성
+        final ArrayAdapter<String> aa; // (1) ArrayList의 내용을 ListView와 연동시켜주는 ArrayAdapter를 정의
+        aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, todoItems); // (2) ArrayAdapter 설정
+        listView.setAdapter(aa); // (3) ListView와 ArrayAdapter를 연결
     }
 }
