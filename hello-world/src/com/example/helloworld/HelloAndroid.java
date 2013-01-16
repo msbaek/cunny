@@ -2,6 +2,7 @@ package com.example.helloworld;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class HelloAndroid extends Activity
 {
@@ -10,6 +11,8 @@ public class HelloAndroid extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        TextView helloText = new TextView(this);
+        helloText.setText("Hello, Android !!!");
+        setContentView(helloText);
     }
 }
